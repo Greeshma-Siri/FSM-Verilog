@@ -10,20 +10,8 @@ This project implements a **1110 sequence detector** using both **Mealy** and **
 - **moorel.v** - Moore FSM implementation  
 - **README.md** - This documentation file
 
-## State Diagrams
+## Mealy machine
 
-### Mealy Machine State Diagram
-  +---+    1    +---+    1    +---+    1    +---+
-  |   | ------> |   | ------> |   | ------> |   |
-  | S0|         | S1|         | S2|         | S3|
-  |   | <------ |   | <------ |   | <------ |   |
-  +---+    0    +---+    0    +---+    0    +---+
-    |           |           |           |
-    |0          |0          |0          |0(out=1)
-    |           |           |           |
-    v           v           v           v
-   S0          S0          S0          S0
-   
 **States:**
 - **S0**: Start/Reset state
 - **S1**: Received '1'
@@ -32,16 +20,7 @@ This project implements a **1110 sequence detector** using both **Mealy** and **
 
 **Output:** `out = 1` when `(state == S3) && (in == 0)`
 
-### Moore Machine State Diagram
-  +---+    1    +---+    1    +---+    1    +---+    0    +---+
-  |   | ------> |   | ------> |   | ------> |   | ------> |   |
-  | S0|         | S1|         | S2|         | S3|         | S4|
-  |out=0|       |out=0|       |out=0|       |out=0|       |out=1|
-  +---+ <------ +---+ <------ +---+ <------ +---+ <------ +---+
-    |     0       |     0       |     0       |     1       |0/1
-    |             |             |             |             |
-    v             v             v             v             v
-   S0            S0            S0            S3            S0
+### Moore Machine 
    
 **States:**
 - **S0**: Start/Reset state (output = 0)
